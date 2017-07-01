@@ -1,14 +1,13 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import questionsComponent from './questions.component';
-import HttpService from '../services/http/http.service';
-import User from '../user/user';
+import Question from './question/question';
+import HttpService from '../../../common/services/http/http.service';
 
 let questionsModule = angular.module('questions', [
   uiRouter,
-  User
+  Question,
 ])
-  .service('HttpService', HttpService)
   .component('questions', questionsComponent)
   .name;
 

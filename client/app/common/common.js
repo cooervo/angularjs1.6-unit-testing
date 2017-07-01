@@ -1,14 +1,11 @@
 import angular from 'angular';
 import Navbar from './navbar/navbar';
-import Questions from './questions/questions';
-import User from './user/user';
+import HttpService from './services/http/http.service';
 
 let commonModule = angular.module('app.common', [
   Navbar,
-  Questions,
-  User
 ])
-
+  .service('HttpService', HttpService)
   .name;
 
 export default commonModule;

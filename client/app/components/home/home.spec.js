@@ -1,9 +1,14 @@
 import HomeModule from './home'
+import QuestionsController from './questions/questions.controller'
+import QuestionsModule from './questions/questions'
+import QuestionModule from './questions/question/question'
 
 describe('Home', () => {
   let $rootScope, $state, $location, $componentController, $compile;
 
   beforeEach(window.module(HomeModule));
+  beforeEach(window.module(QuestionsModule));
+  beforeEach(window.module(QuestionModule));
 
   beforeEach(inject(($injector) => {
     $rootScope = $injector.get('$rootScope');
@@ -11,6 +16,8 @@ describe('Home', () => {
     $state = $injector.get('$state');
     $location = $injector.get('$location');
     $compile = $injector.get('$compile');
+
+
   }));
 
   describe('Module', () => {
@@ -26,6 +33,7 @@ describe('Home', () => {
     // controller specs
     let controller;
     beforeEach(() => {
+
       controller = $componentController('home', {
         $scope: $rootScope.$new()
       });
@@ -36,19 +44,6 @@ describe('Home', () => {
     });
   });
 
-  describe('View', () => {
-    // view layer specs.
-    let scope, template;
 
-    beforeEach(() => {
-      scope = $rootScope.$new();
-      template = $compile('<home></home>')(scope);
-      scope.$apply();
-    });
 
-    it('has name in template', () => {
-      expect(template.find('h1').html()).to.eq('Found in home.html');
-    });
-
-  });
 });

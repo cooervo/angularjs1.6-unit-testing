@@ -1,0 +1,12 @@
+<section class="questions">
+  <h3>You can find me inside {{ $ctrl.name }}.html</h3>
+  <div ng-repeat="question in $ctrl.questions">
+    <question question="question"></question>
+  </div>
+  <div>
+    <h5>Ask Question</h5>
+    <label>Title <input id="qo-add-question-title" type="text"></label>
+    <label>Content <textarea id="qo-add-question-content"></textarea></label>
+    <button ng-click="$ctrl.addQuestion()">Post Your Question</button>
+  </div>
+</section>
