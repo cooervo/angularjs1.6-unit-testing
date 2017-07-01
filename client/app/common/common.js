@@ -9,6 +9,6 @@ let commonModule = angular.module('app.common', [
   User
 ])
 
-.name;
+  .name;
 
 export default commonModule;
