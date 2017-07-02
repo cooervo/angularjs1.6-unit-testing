@@ -8,18 +8,27 @@ class QuestionsController {
   }
 
   $onInit() {
-    this.questions = this.httpService.getQuestions();
+
+    this.httpService.getQuestions()
+      .then(response => {
+        this.questions = response.data
+
+      });
   }
 
-  $onDestroy() {
-  }
 
-  addQuestion(){
+  addQuestion() {
+    // Create question from input elements
     let question = {
       title: document.getElementById("qo-add-question-title").value,
       content: document.getElementById("qo-add-question-content").value
     }
-    this.httpService.addQuestion(question)
+
+    // POST the new question
+    this.httpService.addQuestion(question).then(response => {
+      //push to array of questions
+      this.questions.push(response.data)
+    });
   }
 }
 export default QuestionsController;

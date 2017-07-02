@@ -1,0 +1,14 @@
+{
+  "questions": [
+    {
+      "id": "1",
+      "title": "Why is it faster to process a sorted array than an unsorted array?",
+      "content": "Here is a piece of C++ code that seems very peculiar. For some strange reason, sorting the data miraculously makes the code almost six times faster."
+    },
+    {
+      "id": "2",
+      "title": "How do I delete a Git branch both locally and remotely?",
+      "content": "I want to delete a branch both locally and on my remote project fork on GitHub. Failed Attempts to Delete Remote Branch"
+    }
+  ]
+}

@@ -5,6 +5,7 @@ class HttpService {
 
   constructor($http, $state) {
     this.$state = $state;
+    this.$http = $http;
     this.questions = [
       {
         "title": "Why is it faster to process a sorted array than an unsorted array?",
@@ -18,17 +19,12 @@ class HttpService {
   }
 
   getQuestions() {
-    return this.questions;
-    /*
-     Note: if it was a real endpoint I would just use:
-     this.$http.get("https://endpoint.example")
-      .then(function(response) {
-      });
-     */
+    return this.$http.get("http://localhost:3131/questions");
   }
 
   addQuestion(question) {
-    this.questions.push(question)
+    return this.$http.post("http://localhost:3131/questions", question);
+
   }
 
   openQuestion(question){
