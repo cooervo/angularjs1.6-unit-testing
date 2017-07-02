@@ -5,13 +5,16 @@ import QuestionsTemplate from './questions.html';
 import AppModule from '../../../common/common';
 
 describe('Questions', () => {
-  let $rootScope, makeController, httpService;
+  let $rootScope, makeController, httpService, $compile, scope, $document;
 
   beforeEach(window.module(QuestionsModule));
   beforeEach(window.module(AppModule));
-  beforeEach(inject((_$rootScope_, _HttpService_) => {
+  beforeEach(inject((_$rootScope_, _HttpService_, _$compile_, _$document_) => {
     $rootScope = _$rootScope_;
     httpService = _HttpService_;
+    $compile = _$compile_;
+    $document = _$document_;
+
     makeController = () => {
       return new QuestionsController(_HttpService_);
     };
@@ -38,9 +41,10 @@ describe('Questions', () => {
 
     it('is should add questions', () => {
       expect(controller.questions.length).to.equal(2);
+      //Mock the input and text areas
+      $document.find('body').append('<input value="fizz" id="qo-add-question-title" type="text"><textarea id="qo-add-question-content">Lorem Ipsum Value</textarea>');
       controller.addQuestion();
       expect(controller.questions.length).to.equal(3);
-
     });
 
   });
